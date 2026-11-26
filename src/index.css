@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+}
+
+/* Exact soft pastel sunshine-mint radial canvas matching screenshots */
+.game-canvas-bg {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(255, 255, 232, 0.72) 0%, rgba(255, 255, 232, 0) 24%),
+    radial-gradient(circle at 96% 24%, rgba(255, 255, 240, 0.65) 0%, rgba(255, 255, 240, 0) 14%),
+    radial-gradient(circle at 18% 8%, rgba(236, 247, 178, 0.9) 0%, rgba(236, 247, 178, 0) 48%),
+    linear-gradient(168deg, #e5f5b9 0%, #c8f3c6 38%, #c0f2da 68%, #b9eeec 100%);
+}
+
+/* Main bright sunny yellow board */
+.food-board-surface {
+  background: radial-gradient(ellipse at 50% 48%, #ffffa4 0%, #fff278 52%, #ffdd46 84%, #ffd02e 100%);
+  box-shadow:
+    0 6px 24px rgba(124, 176, 86, 0.22),
+    inset 0 2px 10px rgba(255, 255, 255, 0.75);
+}
+
+/* Glossy orange timer tab */
+.timer-tab-surface {
+  background: linear-gradient(180deg, #ffcf4d 0%, #ffa824 55%, #f58b10 100%);
+  box-shadow:
+    inset 0 3px 4px rgba(255, 255, 255, 0.55),
+    0 2px 8px rgba(226, 130, 12, 0.28);
+}
+
+/* 3D Extruded Chip Buttons matching screenshot 4 */
+.chip-btn-shell {
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #88e03d 0%, #68ce24 100%);
+  box-shadow:
+    0 5px 10px rgba(82, 168, 92, 0.28),
+    0 0 0 3px #ffffff;
+  padding-bottom: 10px;
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms ease;
+}
+
+.chip-btn-shell:active {
+  transform: translateY(3px);
+  padding-bottom: 7px;
+}
+
+.chip-btn-top-green {
+  background: linear-gradient(180deg, #6fda56 0%, #4ec64a 65%, #44ba42 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px rgba(38, 140, 38, 0.35),
+    0 2px 0 rgba(255, 255, 255, 0.85);
+}
+
+.chip-btn-top-orange {
+  background: linear-gradient(180deg, #ffda47 0%, #ffb726 55%, #f59514 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.75),
+    inset 0 -2px 4px rgba(212, 110, 0, 0.3),
+    0 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Wallet pill & Recharge pill */
+.balance-pill-surface {
+  background: linear-gradient(180deg, #64d448 0%, #4ec53e 100%);
+  border: 2px solid #d5e67c;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    0 3px 8px rgba(72, 165, 86, 0.2);
+}
+
+.recharge-pill-surface {
+  background: linear-gradient(180deg, #ffc42c 0%, #ff990c 60%, #f58600 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.55),
+    0 4px 10px rgba(242, 140, 12, 0.3);
+}
+
+/* Spinning highlight glow */
+@keyframes winner-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px #ff9800, 0 0 22px 6px rgba(255, 162, 0, 0.78);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 6px #ffbe0b, 0 0 30px 10px rgba(255, 184, 0, 0.95);
+  }
+}
+
+.food-circle-winner {
+  animation: winner-pulse 0.55s ease-in-out infinite;
+}
+
+@keyframes spin-rays {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sunburst-rays {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(154, 232, 122, 0.55) 0deg 15deg,
+    rgba(255, 255, 236, 0.15) 15deg 30deg
+  );
+  animation: spin-rays 14s linear infinite;
+}
+
+@keyframes float-coin-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.85);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1.1);
+  }
+}
+
+.animate-coin-pop {
+  animation: float-coin-up 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle scrollbar for rules and trend modals */
+.game-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.game-scroll::-webkit-scrollbar-track {
+  background: rgba(84, 198, 76, 0.08);
+  border-radius: 99px;
+}
+
+.game-scroll::-webkit-scrollbar-thumb {
+  background: rgba(84, 198, 76, 0.38);
+  border-radius: 99px;
+}
